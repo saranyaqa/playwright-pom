@@ -6,5 +6,5 @@ def test_playwrightBasics(playwright): # playwrite attribute is the global fixtu
     page.goto("https://nationalpost.com/") # go to url
 
 # page argument - chromium headless mode default , 1 single context
-def test_playwrightShortCut(page:Page):
+def test_playwright_short_cut(page:Page):
     page.goto("https://nationalpost.com/")
