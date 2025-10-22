@@ -8,9 +8,10 @@ Activate/ Deactivate VM :
     source .venv_playwright/bin/activate
     deactivate
 
-If you are using pycharm, add `/venv_playwright/bin/python` to the Project Interpretre
+If you are using pycharm, add `.venv_playwright/bin/python` to the Project Interpretre
 
-Install the libraries after activating virtual env :
+Install the libraries after activating virtual env : 
+
     pip3 install -r requirements.txt
 
 
