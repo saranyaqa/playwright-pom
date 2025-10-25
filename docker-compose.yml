@@ -1,0 +1,11 @@
+services:
+  playwright:
+    build: .
+    container_name: playwright-pom-tests
+    volumes:
+      - .:/app  # Mount project for live changes
+    environment:
+      HEADLESS: "true"
+      PYTHONUNBUFFERED: "1"
+    tty: true
+    command: sh -c "python -u -m playwright install && python -u -m pytest -v -s"
