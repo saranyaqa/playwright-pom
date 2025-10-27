@@ -84,7 +84,7 @@ The script will:
 
     bash
 
-    docker-compose build --no-cache
+        docker-compose build --no-cache
 
 
 ✅ With this setup, Docker handles all dependencies and Playwright browsers, making it easier to run tests consistently across machines or CI/CD pipelines.
