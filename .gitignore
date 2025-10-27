@@ -2,3 +2,5 @@ __pycache__/
 .venv_playwright/
 .DS_Store
 .idea/
+reports
+tests/reports

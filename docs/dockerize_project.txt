@@ -1,0 +1,63 @@
+I Dockerized my Playwright-POM Python project to ensure a consistent, reproducible environment for running browser tests.
+
+I use a Python 3.12 slim image, install required system libraries, Python dependencies, and Playwright browsers.
+
+With docker-compose, the project is mounted into the container, so any test changes are reflected immediately.
+Tests run headless by default with unbuffered output so prints are visible.
+
+This setup eliminates environment issues, keeps the host clean, and is CI/CD ready.
+
+
+┌─────────────────────────────┐
+│   Host Machine / Laptop     │
+│  (Mac / Windows / Linux)    │
+└───────────────┬─────────────┘
+                │
+                │ docker-compose up
+                ▼
+┌─────────────────────────────┐
+│      Docker Container       │
+│  playwright-pom-playwright  │
+│                             │
+│  ┌───────────────┐          │
+│  │ Python 3.12   │          │
+│  │ Environment   │          │
+│  └─────┬─────────┘          │
+│        │                    │
+│  ┌─────▼─────────┐          │
+│  │ System Libraries │       │
+│  │ (GTK, GStreamer,│        │
+│  │  libnss3, etc.) │        │
+│  └─────┬─────────┘          │
+│        │                    │
+│  ┌─────▼─────────┐          │
+│  │ Playwright    │          │
+│  │ Browsers      │          │
+│  │ (Chromium,    │          │
+│  │ Firefox, WebKit)│        │
+│  └─────┬─────────┘          │
+│        │                    │
+│  ┌─────▼─────────┐          │
+│  │ Automated Tests│         │
+│  │ (pytest +     │          │
+│  │ print output) │          │
+│  └───────────────┘          │
+└─────────────────────────────┘
+
+Dockerized Playwright-POM project with GitHub and Jenkins for CI/CD. I’ll keep it clear and realistic.
+
+1️⃣ Overview of the flow
+
+    Developer pushes code (new test or change) to GitHub repo.
+
+    GitHub triggers a Jenkins pipeline (via webhook).
+
+    Jenkins pulls the latest code.
+
+    Jenkins builds the Docker image using your Dockerfile.
+
+    Jenkins runs the container and executes Playwright tests.
+
+    Jenkins reports results (pass/fail) back.
+
+    Optional: If tests pass, deploy or tag the Docker image for staging/production.
